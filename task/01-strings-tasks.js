@@ -180,7 +180,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    return str.split(/;/)
+    return str.split(/;/);
 }
 
 /**
@@ -244,7 +244,10 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    var bool = false;
+	if (typeof value == 'string' || value instanceof String)
+		bool = true;
+    return bool;
 }
 
 
@@ -273,7 +276,16 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    var number = 0;
+	var str = [	'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+ 	'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+	'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+ 	'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'
+ 	];
+	for (var i = 0; i < str.length; i++)
+		if (value == str[i])
+            number = i;
+    return number;
 }
 
 
