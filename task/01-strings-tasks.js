@@ -69,7 +69,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    var str = value.slice(7, value.length-1);
+    return str;
 }
 
 
@@ -207,7 +208,29 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+     var str = "";
+    str = '┌';
+    for (var i = 0; i < width-2; i++)
+    {
+    	str = str + '─';
+    }
+    str = str + '┐' + '\n';
+
+    for (var i = 0; i < height-2; i++)
+    {
+    	str = str + '│';
+    	for (var j = 0; j < width-2; j++)
+    		str = str + ' ';
+    	str = str + '│' + '\n';
+    }
+
+    str = str + '└';
+    for (var i = 0; i < width-2; i++)
+    {
+    	str = str + '─';
+    }
+    str = str + '┘' + '\n';
+    return str;
 }
 
 
